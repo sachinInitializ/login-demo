@@ -1,0 +1,102 @@
+.login {
+  text-align: center;
+}
+
+.login-content {
+  background-color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Header */
+.header {
+  margin-bottom: 3rem;
+  display: grid;
+  font-size: 2rem;
+}
+
+.logo {
+  height: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Input with icon */
+.wrapper {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  box-sizing: border-box;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+.input {
+  height: 35px;
+  padding-left: 2rem;
+  border: none;
+  border-bottom: 1px solid grey;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.user-icon {
+  height: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.password-icon {
+  height: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.error-message {
+  color: red;
+}
+
+/* Button */
+.btn {
+  background: #fff;
+  border: 2px solid grey;
+  height: 3rem;
+  width: 10rem;
+  border-radius: 7rem;
+  color: #2b64b0;
+  text-decoration: none;
+  font-size: 1.25rem;
+  margin: 2rem 0 1rem 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.forgot-password {
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.language-box {
+  margin-top: 6rem;
+}
+
+.lngBtn {
+  border: none;
+  background: none;
+  background-color: none;
+  height: 2rem;
+  border-radius: 5px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.active {
+  color: #2b64b0;
+  background-color: #dce8f8;
+}
