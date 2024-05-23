@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import "./login.css";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+  const emailRgex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [noValidEmail, showNoValidEmail] = useState(false);
+  const [invalidEmail, setInvalidEmail] = useState(false);
 
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
 
   const validateEmail = (e) => {
-    if (e.target?.value && e.target.value.match(isValidEmail)) {
-      showNoValidEmail(false);
+    if (e.target?.value && e.target.value.match(emailRgex)) {
+      setInvalidEmail(false);
       setEmail(e.target.value);
     } else if (e.target?.value) {
-      showNoValidEmail(true);
+      setInvalidEmail(true);
     }
   };
 
@@ -33,8 +35,8 @@ const Login = () => {
   };
 
   const login = () => {
-    if (!noValidEmail && email && password) {
-      console.log("Valid form");
+    if (!invalidEmail && email && password) {
+      navigate("/home");
     }
   };
 
@@ -58,7 +60,7 @@ const Login = () => {
             onBlur={validateEmail}
           />
         </div>
-        <div class="wrapper">
+        <div className="wrapper">
           <div className="icon">
             <img className="user-icon" src="./images/password.png" alt="lock" />
           </div>
@@ -70,7 +72,7 @@ const Login = () => {
             name="password"
           />
         </div>
-        {noValidEmail && (
+        {invalidEmail && (
           <span className="error-message">Not a valid email</span>
         )}
         <button className="btn" onClick={login}>
